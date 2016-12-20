@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @figure.name %> at <%= @figure.landmark.name %></title>
+</head>
+<body>
+
+<h1> <%= @figure.name %> at <%= @figure.landmark.name %></h1>
+
+<a href="/figures/<%= @figure.id %>/edit">Edit this FIGURE</a>
+<form action="/figures/<%= @figure.id %>/delete" method="POST">
+<input type="hidden" name="_method" value="delete">
+<input type="submit" value="Rewrite History">
+  
+</form>
+</body>
+</html>

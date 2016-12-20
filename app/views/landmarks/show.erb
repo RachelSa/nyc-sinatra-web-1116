@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @landmark.name %></title>
+</head>
+<body>
+
+
+
 <table>
   <tr>
     <th>Name</th>
@@ -8,3 +17,14 @@
     <td><%= @landmark.year_completed %></td>
   </tr>
 <table>
+
+<a href="/landmarks/<%= @landmark.id %>/edit">Edit this landmark</a>
+
+<form action="/landmarks/<%= @landmark.id %>/delete" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Nuke this landmark">
+</form>
+
+
+</body>
+</html>
