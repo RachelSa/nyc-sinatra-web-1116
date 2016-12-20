@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= @figure.name %> at <%= @figure.landmark.name %></title>
+  <title><%= @figure.name %> </title>
 </head>
 <body>
 
-<h1> <%= @figure.name %> at <%= @figure.landmark.name %></h1>
+<h1> <%= @figure.name %> </h1>
+<% @figure.landmarks.each do |landmark| %>
+<p><%= landmark.name %></p>
+<% end %> 
 
 <a href="/figures/<%= @figure.id %>/edit">Edit this FIGURE</a>
+
 <form action="/figures/<%= @figure.id %>/delete" method="POST">
 <input type="hidden" name="_method" value="delete">
 <input type="submit" value="Rewrite History">

@@ -9,9 +9,37 @@
 
 <form action="/figures" method="POST">
 <input  id="figure_name" type="text" name="figure[name]">
-<!-- <input  id="figure_name" type="text" name="figure[name]">
- -->
- <input type="submit" value="Add Figure">  
+  
+  <% @landmarks.each do |landmark| %>
+  <label for="landmark_<%= landmark.id %>"><%= landmark.name %>
+  <input type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>" id="landmark_<%= landmark.id %>">
+  </label>
+  <% end %>
+
+  <label>And/or, create a new landmark:</label>
+  
+    <label>Name:
+      <input  type="text" name="landmark[name]" id="new_landmark"></label>
+      <label> Year Created: 
+      <input type="text" name="landmark[year_completed]">
+    </label>
+
+  <% @titles.each do |title| %>
+  <label for="title_<%= title.id %>"><%= title.name %>
+  <input type="checkbox" name="figure[title_ids][]" value="<%= title.id %>" id="title_<%= title.id %>">
+   <% end %>
+
+  <label>You can also Promote or Demote!</label>
+
+
+   <label>Title:
+      <input  type="text" name="title[name]" id="new_title"></label>
+  </label>
+
+
+ 
+
+<input type="submit" value="Create New Figure">  
 </form>
 </body>
 </html>
